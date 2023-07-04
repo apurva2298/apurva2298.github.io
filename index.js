@@ -3,7 +3,10 @@ async function fetchNewsArticles() {
     const apiKey = '55267407dd21432eb3625b80d9978a35'; // Replace with your actual NewsAPI key
   
     try {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+      const opts = {
+        referrer:"http://localhost:63342/"
+      };
+      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`,opts);
       const data = await response.json();
       const articles = data.articles;
       displayNewsArticles(articles);
